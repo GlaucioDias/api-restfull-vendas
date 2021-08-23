@@ -3,7 +3,7 @@ import CreateCustomerService from '../services/CreateCustomerService';
 import DeleteCustomerService from '../services/DeleteCustomerService';
 import ListCustomerService from '../services/ListCustomerService';
 import ShowCustomerService from '../services/ShowCustomerService';
-import updateCustomerService from '../services/updateCustomerService';
+import updateCustomerService from '../services/UpdateCustomerService';
 
 export default class CustomersController {
   public async index(request: Request, response: Response): Promise<Response> {
