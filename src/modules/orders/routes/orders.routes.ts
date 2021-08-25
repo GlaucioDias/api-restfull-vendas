@@ -7,30 +7,26 @@ const ordersRouter = Router();
 
 const ordersController = new OrdersController();
 
-ordersRouter.use(isAuthenticated)
+ordersRouter.use(isAuthenticated);
 
-ordersRouter
-  .route('/')
-  .post(
-    celebrate({
-      [Segments.BODY]: {
-        customer_id: Joi.string().uuid().required(),
+ordersRouter.route('/').post(
+  celebrate({
+    [Segments.BODY]: {
+      customer_id: Joi.string().uuid().required(),
 
-        products: Joi.required(),
-      },
-    }),
-    ordersController.create,
-  );
+      products: Joi.required(),
+    },
+  }),
+  ordersController.create,
+);
 
-ordersRouter
-  .route('/:id')
-  .get(
-    celebrate({
-      [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
-      },
-    }),
-    ordersController.show,
-  )
+ordersRouter.route('/:id').get(
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  ordersController.show,
+);
 
 export default ordersRouter;

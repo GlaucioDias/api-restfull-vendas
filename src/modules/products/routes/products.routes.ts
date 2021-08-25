@@ -7,7 +7,7 @@ const productsRouter = Router();
 
 const productsController = new ProductsController();
 
-productsRouter.use(isAuthenticated)
+productsRouter.use(isAuthenticated);
 
 productsRouter
   .route('/')
