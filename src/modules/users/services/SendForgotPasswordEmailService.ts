@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import path from 'path';
-import UsersRepository from '../typeorm/repositories/UsersRepository';
-import UserTokensRepository from '../typeorm/repositories/UserTokensRepository';
+import UsersRepository from '../infra/typeorm/repositories/UsersRepository';
+import UserTokensRepository from '../infra/typeorm/repositories/UserTokensRepository';
 import EtherealMail from '@config/mail/EtherealMail';
 interface IRequest {
   email: string;
@@ -23,6 +23,7 @@ class SendForgotPasswordEmailService {
 
     const forgotPasswordTemplate = path.resolve(
       __dirname,
+      '..',
       '..',
       'views',
       'forgot_password.hbs',
