@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 import CreateCustomerService from '../../../services/CreateCustomerService';
 import DeleteCustomerService from '../../../services/DeleteCustomerService';
 import ListCustomerService from '../../../services/ListCustomerService';
 import ShowCustomerService from '../../../services/ShowCustomerService';
 import updateCustomerService from '../../../services/UpdateCustomerService';
-import CustomersRepository from '../../typeorm/repositories/CustomersRepository';
 
 export default class CustomersController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const listCustomers = new ListCustomerService();
+    const listCustomers = container.resolve(ListCustomerService);
 
     const customers = await listCustomers.execute();
 
@@ -18,7 +18,7 @@ export default class CustomersController {
   public async show(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const showCustomer = new ShowCustomerService();
+    const showCustomer = container.resolve(ShowCustomerService);
 
     const customer = await showCustomer.execute({ id });
 
@@ -28,9 +28,7 @@ export default class CustomersController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email } = request.body;
 
-    const customersRepository = new CustomersRepository();
-
-    const createCustomer = new CreateCustomerService(customersRepository);
+    const createCustomer = container.resolve(CreateCustomerService);
 
     const customer = await createCustomer.execute({
       name,
@@ -44,7 +42,7 @@ export default class CustomersController {
     const { name, email } = request.body;
     const { id } = request.params;
 
-    const updateCustomer = new updateCustomerService();
+    const updateCustomer = container.resolve(updateCustomerService);
 
     const customer = await updateCustomer.execute({
       id,
@@ -58,7 +56,7 @@ export default class CustomersController {
   public async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const deleteCustomer = new DeleteCustomerService();
+    const deleteCustomer = container.resolve(DeleteCustomerService);
 
     await deleteCustomer.execute({ id });
 
