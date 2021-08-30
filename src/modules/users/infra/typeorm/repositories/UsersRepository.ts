@@ -1,5 +1,4 @@
 import { ICreateUser } from '@modules/users/domain/models/ICreateUser';
-import { IUser } from '@modules/users/domain/models/IUser';
 import { IUsersRepository } from '@modules/users/domain/repositories/IUsersRepository';
 import { getRepository, Repository } from 'typeorm';
 import User from '../entities/User';
@@ -11,7 +10,7 @@ class UsersRepository implements IUsersRepository {
     this.ormRepository = getRepository(User);
   }
 
-  public async findAll(): Promise<IUser[]> {
+  public async findAll(): Promise<User[] | undefined> {
     const users = await this.ormRepository.find();
 
     return users;

@@ -26,40 +26,38 @@ usersRouter
     usersController.create,
   );
 
-usersRouter
-  .route('/:id')
-  .get(
-    isAuthenticated,
-    celebrate({
-      [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
-      },
-    }),
-    usersController.show,
-  )
-  .put(
-    isAuthenticated,
-    celebrate({
-      [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
-      },
-      [Segments.BODY]: {
-        name: Joi.string().required(),
-        email: Joi.string().email().required(),
-        password: Joi.string().required(),
-      },
-    }),
-    usersController.update,
-  )
-  .delete(
-    isAuthenticated,
-    celebrate({
-      [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
-      },
-    }),
-    usersController.delete,
-  );
+usersRouter.route('/:id').get(
+  isAuthenticated,
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  usersController.show,
+);
+// .put(
+//   isAuthenticated,
+//   celebrate({
+//     [Segments.PARAMS]: {
+//       id: Joi.string().uuid().required(),
+//     },
+//     [Segments.BODY]: {
+//       name: Joi.string().required(),
+//       email: Joi.string().email().required(),
+//       password: Joi.string().required(),
+//     },
+//   }),
+//   usersController.update,
+// )
+// .delete(
+//   isAuthenticated,
+//   celebrate({
+//     [Segments.PARAMS]: {
+//       id: Joi.string().uuid().required(),
+//     },
+//   }),
+//   usersController.delete,
+// );
 
 usersRouter
   .route('/avatar')
