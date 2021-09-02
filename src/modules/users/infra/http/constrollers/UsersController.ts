@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import CreateUserService from '../../../services/CreateUserService';
-import ListUserService from '../../../services/ListUserService';
 import { classToClass } from 'class-transformer';
 import { container } from 'tsyringe';
 import ShowUserService from '@modules/users/services/ShowUserService';
+import ListUserService from '@modules/users/services/ListUserService';
+import CreateUserService from '@modules/users/services/CreateUserService';
 
 export default class UsersController {
   public async index(request: Request, response: Response): Promise<Response> {
