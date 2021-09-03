@@ -5,7 +5,7 @@ import { ICustomersRepository } from '../domain/repositories/ICustomersRepositor
 @injectable()
 class DeleteCustomerService {
   constructor(
-    @inject('CustomersRepositiry')
+    @inject('CustomersRepository')
     private customersRepository: ICustomersRepository,
   ) {}
 

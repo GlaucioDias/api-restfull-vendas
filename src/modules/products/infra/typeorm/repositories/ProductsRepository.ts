@@ -1,12 +1,9 @@
 import { ICreateProduct } from '@modules/products/domain/models/ICreateProduct';
+import { IFindProducts } from '@modules/products/domain/models/IFindProducts';
 import { IUpdateStockProduct } from '@modules/products/domain/models/IUpdateStockProduct';
 import { IProductsRepository } from '@modules/products/domain/repositories/IProductsRepository';
 import { getRepository, In, Repository } from 'typeorm';
 import Product from '../entities/Product';
-
-interface IFindProducts {
-  id: string;
-}
 
 class ProductsRepository implements IProductsRepository {
   private ormRepository: Repository<Product>;

@@ -8,7 +8,7 @@ export default class OrdersController {
     const { id } = request.params;
 
     const showOrder = container.resolve(ShowOrderService);
-    const order = await showOrder.execute(id);
+    const order = await showOrder.execute({ id });
 
     return response.json(order);
   }
