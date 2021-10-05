@@ -11,6 +11,8 @@ import { IUserTokensRepository } from '@modules/users/domain/repositories/IUserT
 import OrdersRepository from '@modules/orders/infra/typeorm/repositories/OrdersRepository';
 import { IOrdersRepository } from '@modules/orders/domain/repositories/IOrdersRepository';
 
+import '@modules/users/providers';
+
 container.registerSingleton<ICustomersRepository>(
   'CustomersRepository',
   CustomersRepository,
