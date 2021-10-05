@@ -13,7 +13,6 @@ class CreateCustomerService {
 
   public async execute({ name, email }: ICreateCustomer): Promise<ICustomer> {
     const emailExists = await this.customersRepository.findByEmail(email);
-
     if (emailExists) {
       throw new AppError('Email address already used.');
     }
