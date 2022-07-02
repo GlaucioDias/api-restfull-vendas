@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+.docker
 node_modules/
 build/
 temp/
