@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect=0.0.0.0:9229 --transpile-only --ignore-watch node_modules src/shared/infra/http",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "seed:config": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "test": "jest",
@@ -45,14 +47,14 @@
     "jest": "26.6.3",
     "prettier": "^2.3.2",
     "ts-jest": "26.5.6",
-    "ts-node-dev": "^1.1.8",
+    "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.0",
-    "class-transformer": "^0.4.0",
+    "class-transformer": "^0.5.1",
     "cors": "^2.8.5",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
@@ -71,6 +73,7 @@
     "typeorm": "^0.2.37",
     "typeorm-pagination": "^2.0.3",
     "typeorm-seed": "^0.1.6",
+    "typeorm-seeding": "^1.6.1",
     "uuid": "^8.3.2"
   }
 }

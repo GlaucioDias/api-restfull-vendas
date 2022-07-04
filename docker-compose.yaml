@@ -6,6 +6,7 @@ services:
     container_name: apivendas-app
     ports:
       - "3301:3301"
+      - "9229:9229"
     volumes:
       - .:/home/node/app
     depends_on:
@@ -30,15 +31,3 @@ services:
     container_name: apivendas-redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: apivendas-pgadmin
-    tty: true
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
-    ports:
-      - "8000:80"
-    depends_on:
-      - db
