@@ -14,7 +14,7 @@ class SendForgotPasswordEmailService {
 
     @inject('UserTokensRepository')
     private userTokensRepository: IUserTokensRepository,
-  ) {}
+  ) { }
 
   public async execute({ email }: ISendforgotPasswordEmail): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
@@ -27,7 +27,6 @@ class SendForgotPasswordEmailService {
 
     const forgotPasswordTemplate = path.resolve(
       __dirname,
-      '..',
       '..',
       'views',
       'forgot_password.hbs',
