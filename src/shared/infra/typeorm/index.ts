@@ -17,7 +17,7 @@ import { CreateTableOrdersProducts1629678258805 } from './migrations/16296782588
 import { AddOrderIdToOrdersProducts1629678532712 } from './migrations/1629678532712-AddOrderIdToOrdersProducts';
 import { AddProductIdToOrdersProducts1629678979171 } from './migrations/1629678979171-AddProductIdToOrdersProducts';
 
-const options: DataSourceOptions = {
+export const dataSource = new DataSource({
   type: 'postgres',
   host: 'db',
   port: 5432,
@@ -36,6 +36,4 @@ const options: DataSourceOptions = {
     AddOrderIdToOrdersProducts1629678532712,
     AddProductIdToOrdersProducts1629678979171,
   ],
-};
-
-export const dataSource = new DataSource(options);
+});
