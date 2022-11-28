@@ -1,7 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import { ICustomerPaginate } from '../domain/models/ICustomerPaginate';
 import { ICustomersRepository } from '../domain/repositories/ICustomersRepository';
-import Customer from '../infra/typeorm/entities/Customer';
 
 interface SearchParams {
   page: number;
