@@ -16,7 +16,8 @@
     "test:watch": "jest --watch",
     "docker:up": "docker-compose -f docker-compose.yaml up",
     "docker:up:build": "docker-compose -f docker-compose.yaml up --build",
-    "docker:down": "docker-compose -f docker-compose.yaml down"
+    "docker:destroy": "docker-compose -f docker-compose.yaml down",
+    "docker:stop": "docker-compose -f docker-compose.yaml stop"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
@@ -72,7 +73,6 @@
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.6.0",
     "typeorm": "^0.3.7",
-    "typeorm-pagination": "^2.0.3",
     "typeorm-seed": "^0.1.6",
     "typeorm-seeding": "^1.6.1",
     "uuid": "^8.3.2"
