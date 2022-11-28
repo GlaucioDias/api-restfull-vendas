@@ -2,6 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 import { IDeleteCustomer } from '../domain/models/IDeleteCustomer';
 import { ICustomersRepository } from '../domain/repositories/ICustomersRepository';
+import { validateId } from '@shared/helper/validate'
 @injectable()
 class DeleteCustomerService {
   constructor(
@@ -10,6 +11,14 @@ class DeleteCustomerService {
   ) {}
 
   public async execute({ id }: IDeleteCustomer): Promise<void> {
+    if(!id) {
+      throw new AppError("Id not informed.");
+    }
+
+    if(!validateId(id)) {
+      throw new AppError("Invalid id.");
+    }
+
     const customer = await this.customersRepository.findById(id);
 
     if (!customer) {

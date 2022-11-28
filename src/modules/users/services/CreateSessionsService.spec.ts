@@ -20,13 +20,13 @@ describe('Create Session', () => {
 
   it('should be able to authenticate', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Glaucio Dias',
-      email: 'glaucio@teste.com.br',
+      name: 'John Doe',
+      email: 'johndoe@teste.com.br',
       password: '123456',
     });
 
     const response = await createSession.execute({
-      email: 'glaucio@teste.com.br',
+      email: 'johndoe@teste.com.br',
       password: '123456',
     });
 
@@ -37,7 +37,7 @@ describe('Create Session', () => {
   it('should not be able to authenticate with non existent user', async () => {
     expect(
       createSession.execute({
-        email: 'glaucio1@teste.com.br',
+        email: 'johndoe1@teste.com.br',
         password: '123456',
       }),
     ).rejects.toBeInstanceOf(AppError);
@@ -45,14 +45,14 @@ describe('Create Session', () => {
 
   it('should not be able to authenticate with wrong password', async () => {
     await fakeUsersRepository.create({
-      name: 'Glaucio Dias',
-      email: 'glaucio@teste.com.br',
+      name: 'John Doe',
+      email: 'johndoe@teste.com.br',
       password: '123456',
     });
 
     expect(
       createSession.execute({
-        email: 'glaucio@teste.com.br',
+        email: 'johndoe@teste.com.br',
         password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
