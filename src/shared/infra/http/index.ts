@@ -6,7 +6,7 @@ import { dataSource } from '../typeorm';
 const PORT = process.env.PORT || 3301;
 
 dataSource.initialize().then(() => {
-  const server = app.listen(PORT, () =>
+  app.listen(PORT, () =>
     console.log(`Server started on port ${PORT}! 🏆`),
   );
 });
