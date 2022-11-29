@@ -14,10 +14,10 @@
     "lint-fix": "eslint . --ext .ts --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "docker:up": "docker-compose -f docker-compose.yaml up",
-    "docker:up:build": "docker-compose -f docker-compose.yaml up --build",
-    "docker:destroy": "docker-compose -f docker-compose.yaml down",
-    "docker:stop": "docker-compose -f docker-compose.yaml stop"
+    "docker:up": "docker compose -f docker-compose.yaml up",
+    "docker:up:build": "docker compose -f docker-compose.yaml up --build",
+    "docker:destroy": "docker compose -f docker-compose.yaml down",
+    "docker:stop": "docker compose -f docker-compose.yaml stop"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
