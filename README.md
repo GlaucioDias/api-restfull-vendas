@@ -29,9 +29,9 @@ yarn docker:up:build
 npm run docker:up:build
 ```
 
-O servidor estará em execução no endereço `http://localhost:3301`
+O servidor estará em execução no endereço `http://localhost:3333`
 
-Disponibilizei na pasta Docs um arquivo collection do insomnia
+Disponibilizei na pasta docs um arquivo collection do Insomnia
 
 ## Dependências necessárias:
 - Docker
