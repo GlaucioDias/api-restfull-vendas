@@ -3,7 +3,7 @@ import 'dotenv/config';
 import { app } from './app';
 import { dataSource } from '../typeorm';
 
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3334;
 
 dataSource.initialize().then(() => {
   app.listen(PORT, () =>
